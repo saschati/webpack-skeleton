@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= _.template(require('./../inc/head.html').default)() %>
+</head>
+<body class="page">
+    <%= _.template(require('./../inc/header.html').default)() %>
+
+    <div class="content page__area-content flex flex_jc_center flex_ai_center">
+        <img class="content__item" src="<%= require('./../../img/logo.svg') %>" alt="logo">
+    </div>
+
+    <%= _.template(require('./../inc/footer.html').default)() %>
+</body>
+</html>

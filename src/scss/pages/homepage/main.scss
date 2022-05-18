@@ -1,0 +1,13 @@
+@keyframes waves {
+  to {
+    transform: translate(0, -20px);
+  }
+}
+
+.content {
+  filter: drop-shadow(16px 16px 20px #e20000) invert(80%);
+
+  &__item {
+    animation: waves 2s infinite alternate;
+  }
+}

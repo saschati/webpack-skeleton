@@ -1,0 +1,10 @@
+.bg {
+  --bg-color: #fff;
+
+  background-color: var(--bg-color);
+
+  // COLOR
+  &_color_dark-white {
+    --bg-color: #f5f5f8;
+  }
+}

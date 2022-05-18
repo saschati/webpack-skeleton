@@ -1,0 +1,4 @@
+node_modules
+dist
+.ready
+!.gitignore
