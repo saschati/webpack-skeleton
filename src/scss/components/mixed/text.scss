@@ -1,0 +1,39 @@
+.text {
+  --text-color: var(--color-black);
+
+  font-size: 16px;
+  font-weight: normal;
+
+  color: var(--text-color);
+
+  //FONTS
+  &_font {
+    &_macondo {
+      font-family: 'Macondo', cursive;
+    }
+  }
+
+  //WIGHTS
+  &_weight {
+    &_bold {
+      font-weight: bold;
+    }
+  }
+
+  //SIZE
+  &_size {
+    &_x2 {
+      font-size: 2rem;
+    }
+    &_x3 {
+      font-size: 3rem;
+    }
+  }
+
+  //COLOR
+  &_color {
+    &_soft-black {
+      --text-color: var(--color-soft-black);
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.btn {
+  --btn-bg-color: var(--color-black);
+  --btn-color: var(--color-white);
+
+  --btn-anim-speed: 0.3s;
+
+  background-color: var(--btn-bg-color);
+  color: var(--btn-color);
+
+  height: 40px;
+  padding: 10px 25px 12px;
+  border-radius: 4px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 1rem;
+
+  cursor: pointer;
+  transition: var(--btn-anim-speed);
+
+  // COLOR
+  &_color {
+    &_black {
+      --btn-bg-color: var(--color-black);
+      --btn-color: var(--color-white);
+    }
+    &_blue {
+      --btn-bg-color: var(--color-blue);
+      --btn-color: var(--color-white);
+    }
+    &_red {
+      --btn-bg-color: var(--color-red);
+      --btn-color: var(--color-white);
+    }
+    &_orange {
+      --btn-bg-color: var(--color-orange);
+      --btn-color: var(--color-white);
+    }
+  }
+
+  &:hover {
+    color: var(--btn-bg-color);
+    background-color: var(--btn-color);
+    box-shadow: 0 0 0 1pt var(--btn-bg-color);
+  }
+}

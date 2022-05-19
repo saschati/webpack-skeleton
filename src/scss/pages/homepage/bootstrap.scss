@@ -1,9 +1,12 @@
 @import "../../common/bootstrap";
 // COMPONENTS
-@import "../../components/text";
-@import "../../components/flex";
-@import "../../components/bg";
-@import "../../components/footer";
-@import "../../components/header";
+@import "../../components/mixed/text";
+@import "../../components/mixed/flex";
+@import "../../components/mixed/grid";
+@import "../../components/mixed/bg";
+
+
+@import "../../blocks/footer";
+@import "../../blocks/header";
 
 @import "main";
