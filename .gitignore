@@ -1,4 +1,5 @@
 node_modules
 dist
 .ready
+profile-log.json
 !.gitignore

@@ -7,7 +7,8 @@
     "up": "webpack server --mode=development --open",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "watch": "webpack --watch  --mode=development"
+    "watch": "webpack --watch  --mode=development",
+    "profile": "webpack --json --mode=development --profile > profile-log.json"
   },
   "author": "Olexander Grigorchuk",
   "license": "ISC",
