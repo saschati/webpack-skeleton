@@ -23,10 +23,12 @@ npm install
 COMMAND
 ----------------
 ```
-npm run up    - Up Webpack Dev SErver
-npm run watch - Run webpack watcher
-npm run build - Build as prodaction enviroment
-npm run dev   - Build as development enviroment
+npm run up       - Up Webpack Dev SErver
+npm run watch    - Run webpack watcher
+npm run build    - Build as prodaction enviroment
+npm run dev      - Build as development enviroment
+npm run analizer - Up analize webpack packeges server
+npm run profile  - Create stats by webpack packeges
 ```
 
 DOCKER-COMPOSE
@@ -40,7 +42,7 @@ services:
         build:
             context: app/docker
             dockerfile: node/Dockerfile
-        container_name: happy-node
+        container_name: webpack-node
         volumes:
             - ./app:/app
         working_dir: /app
@@ -49,13 +51,26 @@ services:
         build:
             context: app/docker
             dockerfile: node/Dockerfile
-        container_name: happy-node-up
+        container_name: webpack-node-up
         volumes:
             - ./app:/app
         working_dir: /app
         ports:
             - 8080:8080
         command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run up"
+
+    node-analizer:
+        build:
+            context: app/docker
+            dockerfile: node/Dockerfile
+        container_name: webpack-node-analizer
+        volumes:
+            - ./app:/app
+        working_dir: /app
+        ports:
+            - 8081:8081
+        command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run analizer"
+
 ```
 
 MAKEFILE
@@ -63,6 +78,7 @@ MAKEFILE
 ```
 init: docker-down docker-pull docker-build npm-install docker-up ready
 up: docker-down docker-up
+down: docker-down
 
 .DEFAULT_GOAL := n
 

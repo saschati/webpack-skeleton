@@ -7,7 +7,8 @@
     "up": "webpack server --mode=development --open",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "watch": "webpack --watch  --mode=development",
+    "watch": "webpack-dashboard -- webpack --watch  --mode=development",
+    "analizer": "webpack  --mode=development --env analizer",
     "profile": "webpack --json --mode=development --profile > profile-log.json"
   },
   "author": "Olexander Grigorchuk",
@@ -35,7 +36,9 @@
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "webpack": "^5.72.1",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
+    "webpack-dashboard": "^3.3.7",
     "webpack-dev-server": "^4.9.0"
   }
 }
