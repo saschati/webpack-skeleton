@@ -8,7 +8,16 @@ module.exports = function (confPath) {
         {
             test: /\.js$/,
             include: path.join(confPath, 'src', 'js'),
-            use: 'babel-loader',
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    babelrc: false,
+                    configFile: path.join(__dirname, 'loaders', 'babel.config.js'),
+                    compact: false,
+                    cacheDirectory: true,
+                    sourceMaps: false,
+                },
+            },
         },
         {
             test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
@@ -24,7 +33,14 @@ module.exports = function (confPath) {
             use: [
                 MiniCssExtractPlugin.loader,
                 'css-loader',
-                'postcss-loader',
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        postcssOptions: {
+                            config: path.join(__dirname, 'loaders', 'postcss.config.js'),
+                        }
+                    },
+                },
                 'sass-loader',
             ],
         },

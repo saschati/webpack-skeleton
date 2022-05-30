@@ -3,12 +3,29 @@
 <head>
     <%= _.template(require('./../inc/head.html').default)() %>
 </head>
-<body class="page">
+<body class="page homepage">
     <%= _.template(require('./../inc/header.html').default)() %>
 
-    <div class="content page__area-content flex flex_type_center">
-        <img class="content__item" src="<%= require('./../../img/logo.svg') %>" alt="logo">
-    </div>
+    <main class="homepage__container page__area-content grid">
+        <div class="greeting homepage__greeting grid__area" style="--grid-area: greeting">
+            <div class="greeting__info">
+                <h1 class="greeting__title">
+                    Hi, I'm Sasha and my <br>
+                    Webpack configuration
+                </h1>
+                <p class="greeting__description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at atque autem deleniti dolores, dolorum ipsa magnam maiores minima nam, quod rerum saepe vero vitae voluptatibus? Atque eius natus sint.
+                </p>
+                <button class="btn btn_color_primary">Button</button>
+            </div>
+            <div class="greeting__avatar lozad" data-background-image='<%= require('./../../img/avatar.jpeg') %>'></div>
+        </div>
+        <div class="grid__area webpack bg bg_color_water" style="--grid-area: webpack">
+            <div class="webpack__wrapper">
+                <img class="webpack__logo lozad" data-src="<%= require('./../../img/logo.svg') %>" alt="logo">
+            </div>
+        </div>
+    </main>
 
     <%= _.template(require('./../inc/footer.html').default)() %>
 </body>

@@ -1,8 +1,17 @@
-.header {
-  box-shadow: 2px 0 2px 1px #cdc9c9;
+@use '../core/mixin' as m;
+@use '../core/functions' as f;
+@use '../core/screen' as screen;
 
-  // ITEMS
-  &__item {
-    text-align: center;
+.header {
+  @include m.flex(row, flex-end, center);
+
+  padding-right: 60px;
+
+  &__link {
+    @include m.relative(33px, left);
+  }
+
+  @include screen.mobile {
+    padding-right: 18px;
   }
 }

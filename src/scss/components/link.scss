@@ -1,7 +1,16 @@
+@use '../core/functions' as f;
+
 .link {
-  color: var(--color-gray);
+  color: f.v(link-color, #{f.color(black)});
+  font-size: f.v(link-text-size, #{f.size(nx2)});
+
+  &_type {
+    &--active {
+      --link-color: #{f.color(primary)};
+    }
+  }
 
   &:hover {
-    box-shadow: inset 0 -3px 0 0 var(--color-gray);
+    --link-color: #{f.color(primary)};
   }
 }

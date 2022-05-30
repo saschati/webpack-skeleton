@@ -1,12 +1,21 @@
-@import "../../common/bootstrap";
+@use "../../common/bootstrap";
+
 // COMPONENTS
-@import "../../components/mixed/text";
-@import "../../components/mixed/flex";
-@import "../../components/mixed/grid";
-@import "../../components/mixed/bg";
+@use "../../components/link";
+@use "../../components/social-networks";
+@use "../../components/btn";
+@use "../../components/mark";
 
+// MIXED
+@use "../../mixed/grid";
+@use "../../mixed/bg";
+@use "../../mixed/state";
 
-@import "../../blocks/footer";
-@import "../../blocks/header";
+// BLOCKS
+@use "../../blocks/footer";
+@use "../../blocks/header";
 
-@import "main";
+// THIS
+@use "./blocks/greeting";
+@use "./blocks/webpack";
+@use "main";

@@ -1,0 +1,43 @@
+@use '_conf' as conf;
+@use '../../core/mixin' as m;
+@use '../../core/functions' as f;
+
+.#{conf.$parent} {
+  --menu-icon-line-height: 6px;
+  --menu-icon-bg-color: #{f.color(black)};
+
+  position: relative;
+  display: inline-block;
+
+  @include m.square(30px);
+
+  &__lines {
+    margin: 0 auto;
+
+    position: relative;
+
+    top: 12px;
+
+    &:before, &:after {
+      content: '';
+
+      position: absolute;
+    }
+
+    &, &:before, &:after {
+      @include m.box(30px, f.v(menu-icon-line-height));
+
+      display: block;
+
+      background-color: f.v(menu-icon-bg-color);
+    }
+
+    &:before {
+      margin-top: -12px;
+    }
+
+    &:after {
+      margin-top: 12px;
+    }
+  }
+}

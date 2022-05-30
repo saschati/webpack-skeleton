@@ -1,0 +1,13 @@
+.state {
+  &--hide {
+    display: none !important;
+  }
+
+  &--show {
+    display: block !important;
+  }
+
+  &--no-scroll {
+    overflow: hidden;
+  }
+}

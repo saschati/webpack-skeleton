@@ -6,6 +6,7 @@ DIRECTORY STRUCTURE
 
       ./.docker/ Docker images for this webpack settings
           ./src/ Contains webpack context
+      ./webpack/ Contains webpack configuration
          ./dist/ Outpit webpack compile files
 
 # QUICK START
@@ -70,7 +71,6 @@ services:
         ports:
             - 8081:8081
         command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && npm run analizer"
-
 ```
 
 MAKEFILE
@@ -79,6 +79,7 @@ MAKEFILE
 init: docker-down docker-pull docker-build npm-install docker-up ready
 up: docker-down docker-up
 down: docker-down
+restart: docker-down docker-up
 
 .DEFAULT_GOAL := n
 

@@ -1,0 +1,21 @@
+@use '../core/functions' as f;
+
+@mixin bg-color($name) {
+  &_#{$name} {
+    --bg-color: #{f.color(#{$name})};
+  }
+}
+
+.bg {
+  --bg-color: #{f.color(white)};
+  background-color: f.v(bg-color);
+
+  // COLOR
+  &_color {
+    $colors : ('white', 'black', 'dark', 'primary', 'water', 'dark-blue', 'light', 'light-red');
+
+    @each $color in $colors {
+      @include bg-color($color);
+    }
+  }
+}

@@ -1,0 +1,105 @@
+@mixin text($size: false, /* color */ $c: false, /* line-height */ $lh: false, /* font-weight */ $w: false, $ta: false) {
+  @if ($size) {
+    font-size: if($size, $size, var(--text-size-no));
+  }
+
+  @if ($c) {
+    color: $c;
+  }
+
+  @if ($lh) {
+    line-height: $lh;
+  }
+
+  @if ($w) {
+    font-weight: $w;
+  }
+
+  @if ($ta) {
+    text-align: $ta;
+  }
+}
+
+@mixin background($color: false, $img: false, $position: center, $size: cover, $repeat: false) {
+  @if ($color) {
+    background-color: $color;
+  }
+
+  @if ($position) {
+    background-position: $position;
+  }
+
+  @if ($img) {
+    background-image: url($img);
+  }
+
+  @if ($size) {
+    background-size: $size;
+  }
+
+  @if ($repeat == false) {
+    background-repeat: no-repeat;
+  } @else if ($repeat == true) {
+    background-repeat: repeat;
+  } @else {
+    background-repeat: $repeat;
+  }
+}
+
+@mixin box($w, $h, $radius: 0) {
+  width: $w;
+  height: $h;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+@mixin square($size, $radius: 0) {
+  @include box($size, $size, $radius);
+}
+
+@mixin coords($t: false, $l: false, $r: false, $b: false) {
+  @if ($t) {
+    top: $t;
+  }
+
+  @if ($l) {
+    left: $l;
+  }
+
+  @if ($r) {
+    right: $r;
+  }
+
+  @if ($b) {
+    bottom: $b;
+  }
+}
+
+@mixin flex($flow: false, $jc: false, $ai: false) {
+  display: flex;
+
+  @if ($flow == center) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @if ($flow) {
+    flex-flow: $flow;
+  }
+
+  @if ($jc) {
+    justify-content: $jc;
+  }
+
+  @if ($ai) {
+    align-items: $ai;
+  }
+}
+
+@mixin relative($size, $direction: bottom) {
+  & + & {
+    margin-#{$direction}: $size;
+  }
+}

@@ -1,0 +1,41 @@
+@use '../_conf' as conf;
+
+@include conf.animate(arrow-left) {
+  @include conf.lines {
+    transition-duration: 0s;
+    transition-delay: 0.2s;
+
+    &:before, &:after {
+      transition: margin 0.2s 0.2s, transform 0.2s 0s;
+    }
+  }
+
+  &.#{conf.$parent}--active .#{conf.$parent}__lines,
+  & .#{conf.$parent}__lines {
+    &:before {
+      transform-origin: 0 100%;
+    }
+
+    &:after {
+      transform-origin: 0 0;
+    }
+  }
+
+  @include conf.hover() {
+    background-color: rgba(0, 0, 0, 0.0);
+    transition-delay: 0.2s;
+
+    &:before, &:after {
+      margin-top: 0;
+      transition-delay: 0s, 0.2s;
+    }
+
+    &:before {
+      transform: rotate(22.5deg) skewX(22.5deg);
+    }
+
+    &:after {
+      transform: rotate(-22.5deg) skewX(-22.5deg);
+    }
+  }
+}

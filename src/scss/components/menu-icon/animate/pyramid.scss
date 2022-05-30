@@ -1,0 +1,41 @@
+@use '../_conf' as conf;
+
+@include conf.animate(pyramid) {
+  @include conf.lines {
+    transition: margin 0.2s 0.2s, width 0.2s 0s;
+
+    &:after, &:before {
+      left: 0;
+      transition-duration: 0.2s;
+    }
+
+    &:after {
+      transition-property: margin, left;
+      transition-delay: 0.2s, 0s;
+    }
+
+    &:before {
+      transition-property: margin, width, left;
+      transition-delay: 0.2s, 0s, 0s;
+    }
+  }
+
+  @include conf.hover {
+    margin-top: 6px;
+    width: 20px;
+    transition-delay: 0s, 0.2s;
+
+    &:after {
+      margin-top: 6px;
+      left: -5px;
+      transition-delay: 0s, 0.2s;
+    }
+
+    &:before {
+      margin-top: -6px;
+      width: 10px;
+      left: 5px;
+      transition-delay: 0s, 0.2s, 0.2s;
+    }
+  }
+}

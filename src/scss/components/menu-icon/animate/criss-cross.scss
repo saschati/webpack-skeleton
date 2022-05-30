@@ -1,0 +1,34 @@
+@use '../_conf' as conf;
+
+@include conf.animate(criss-cross) {
+  @include conf.lines {
+    transition-duration: 0s;
+    transition-delay: 0.2s;
+
+    &:before {
+      transition: margin 0.2s 0.2s, transform 0.2s 0s;
+    }
+
+    &:after {
+      transition: margin 0.2s 0.2s, transform 0.2s 0s;
+    }
+  }
+
+  @include conf.hover {
+    background-color: rgba(0, 0, 0, 0.0);
+    transition-delay: 0.2s;
+
+    &:before, &:after {
+      margin-top: 0;
+      transition-delay: 0s, 0.2s;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

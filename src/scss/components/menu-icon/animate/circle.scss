@@ -1,0 +1,25 @@
+@use '../_conf' as conf;
+@use '../../../core/mixin' as m;
+
+@include conf.animate(circle) {
+  @include conf.lines {
+    transition: 0.2s ease 0s;
+
+    &:before, &:after {
+      transition: margin 0.2s 0.2s, opacity 0s 0.2s;
+    }
+  }
+
+  @include conf.hover {
+    @include m.square(16px, 50%);
+
+    margin-top: -5px;
+    transition-delay: 0.2s;
+
+    &:before, &:after {
+      margin-top: 0;
+      opacity: 0;
+      transition-delay: 0s, 0.2s;
+    }
+  }
+}

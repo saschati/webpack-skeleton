@@ -1,0 +1,11 @@
+@use '../_conf' as conf;
+
+@include conf.animate(rotate) {
+  transform: rotate(0deg);
+  transition: 0.2s ease;
+
+  .#{conf.$parent}--active,
+  &:hover {
+    transform: rotate(90deg);
+  }
+}

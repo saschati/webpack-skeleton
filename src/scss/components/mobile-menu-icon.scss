@@ -1,0 +1,7 @@
+@use "menu-icon/_conf" as conf;
+@use "menu-icon/menu";
+@use "menu-icon/animate/criss-cross";
+
+.#{conf.$parent} {
+  --menu-icon-line-height: 2px;
+}

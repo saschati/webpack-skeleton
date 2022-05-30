@@ -1,0 +1,13 @@
+@use '../core/mixin' as m;
+
+.social-networks {
+  @include m.flex();
+
+  &__icon {
+    @include m.relative(35px, left);
+  }
+
+  &__img {
+    @include m.square(30px);
+  }
+}

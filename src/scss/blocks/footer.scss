@@ -1,7 +1,16 @@
-.footer {
-  box-shadow: -1px 0 3px 1px #cdc9c9;;
+@use '../core/mixin' as m;
+@use '../core/functions' as f;
 
-  &__item {
-    text-align: center;
+.footer {
+  @include m.flex(column, flex-end, center);
+
+  &__social-network {
+    margin-bottom: 26px;
+  }
+
+  &__copyright {
+    @include m.text(f.size(sx1), $lh: f.lh(-3px));
+
+    margin-bottom: 54px;
   }
 }

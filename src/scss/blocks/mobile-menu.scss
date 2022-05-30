@@ -1,0 +1,41 @@
+@use './../core/mixin' as m;
+@use './../core/functions' as f;
+
+.mobile-menu {
+  @include m.flex(row, flex-end, flex-start);
+
+  height: 70px;
+  padding: 0;
+
+  top: 0;
+  position: sticky;
+
+  transition: all 1s;
+
+  &__icon {
+    margin-right: 18px;
+    margin-top: 20px;
+
+    &_state--open {
+      position: absolute;
+
+      @include m.coords($t: 0, $r: 0);
+    }
+  }
+
+  &_state--open {
+    @include m.flex(column, center, $ai: center);
+
+    position: fixed;
+    z-index: 5;
+
+    @include m.square(100%);
+
+    background-color: f.color(white);
+  }
+
+  &__item {
+    @include m.relative(20px, top);
+    @include m.relative(0, left);
+  }
+}

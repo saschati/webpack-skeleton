@@ -1,0 +1,16 @@
+@use '../_conf' as conf;
+
+@include conf.animate(flatten) {
+  @include conf.lines {
+    &:before, &:after {
+      transition: 0.2s ease;
+    }
+  }
+
+  @include conf.hover {
+    &:before,
+    &:after {
+      margin-top: 0;
+    }
+  }
+}

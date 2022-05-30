@@ -1,0 +1,9 @@
+@use '../core/functions' as f;
+
+.grid {
+  display: grid;
+
+  &__area {
+    grid-area: f.v(grid-area);
+  }
+}

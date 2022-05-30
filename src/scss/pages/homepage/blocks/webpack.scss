@@ -1,0 +1,38 @@
+@use '../../../core/mixin' as m;
+@use '../../../core/functions' as f;
+@use '../../../core/screen' as screen;
+
+.webpack {
+  &__wrapper {
+    width: 856px;
+
+    padding: 18px;
+
+    margin: auto;
+
+    @include m.flex(center);
+  }
+
+  &__logo {
+    @keyframes webpack {
+      from {
+        filter: drop-shadow(16px 16px 20px f.color(primary)) invert(70%);
+      }
+      to {
+        filter: drop-shadow(16px 16px 20px f.color(primary)) invert(90%);
+      }
+    }
+
+    height: 100%;
+
+    animation: webpack 2s infinite alternate-reverse;
+  }
+
+  @include screen.mobile {
+    &__wrapper {
+      width: 100%;
+
+      margin: auto;
+    }
+  }
+}

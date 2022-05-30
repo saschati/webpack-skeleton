@@ -1,0 +1,22 @@
+@use '../core/mixin' as m;
+@use '../core/functions' as f;
+@use '../core/screen' as screen;
+
+.mark {
+  display: inline-block;
+
+  height: 25px;
+  padding-inline: 10px;
+
+  border-radius: 16px;
+  background-color: f.v(mark-bg-color, #{f.color(dark-blue)});
+
+  @include m.text(f.size(nx2), $lh: f.lh(1px), $c: f.v(mark-color, #{f.color(white)}), $w: 900);
+
+  // ADAPTIVE
+  @include screen.mobile {
+    padding-inline: 12px;
+
+    @include m.text(f.size(), $lh: f.lh(2px));
+  }
+}

@@ -1,0 +1,45 @@
+@use './functions' as f;
+@use './screen' as screen;
+
+@mixin style {
+  background-color: f.color(white);
+  color: f.color(dark);
+  line-height: f.v(line-height);
+
+  font-family: 'Heebo', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: f.v(text-size-base);
+}
+
+.page {
+  display: grid;
+  grid-template:
+        'header'  70px
+        'content' minmax(calc(100% - 252px), auto)
+        'footer'  182px
+    /    100%
+  ;
+
+  // AREA ITEMS
+  &__area-footer {
+    grid-area: footer;
+  }
+
+  &__area-header {
+    grid-area: header;
+  }
+
+  &__area-content {
+    grid-area: content;
+  }
+
+  @include screen.mobile {
+    grid-template:
+          'header'  50px
+          'content' auto
+          'footer'  182px
+      /    100%
+    ;
+  }
+}
