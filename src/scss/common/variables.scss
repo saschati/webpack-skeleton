@@ -1,32 +1,18 @@
+@use 'src/scss/core/config' as c;
+@use 'src/scss/core/helpers' as h;
+
 :root {
   // COLOR PALETTE
-  --color-white: #FFFFFF;
-  --color-black: #000000;
-  --color-dark: #21243D;
-  --color-primary: #FF6464;
-  --color-water: #EDF7FA;
-  --color-dark-blue: #142850;
-  --color-light: #8695A4;
-  --color-light-red: #8ff7c7;
-  --color-very-light-red: #ff7c7c;
-  --color-light-gray: #e0e0e0;
-  --color-strong-cyan: #00a8cc;
-
+  @each $name, $color in c.colors() {
+    --color-#{h.to-string($name)}: #{$color};
+  }
 
   // TEXT SIZE
-  --text-size-base: 16px;
-  --text-size-sx1: 0.81rem;  // 14px
-  --text-size-no: 1rem;      // 16px
-  --text-size-nx1: 1.125rem; // 18px
-  --text-size-nx2: 1.25rem;  // 20px
-  --text-size-nx3: 1.375rem; // 22px
-  --text-size-nx4: 1.5rem;   // 24px
-  --text-size-nx5: 1.625rem; // 26px
-  --text-size-nx6: 1.875rem; // 30px
-  --text-size-mx1: 2rem;     // 32px
-  --text-size-mx2: 2.125rem; // 34px
-  --text-size-mx3: 2.75rem;  // 44px
+  --text-size-base: #{c.$baseSize};
+  @each $name, $size in c.sizes(name, size) {
+    --text-size-#{$name}: #{$size};
+  }
 
   // LINE HEIGHT
-  --line-height: 24px;
+  --line-height: #{c.$lineHeight};
 }

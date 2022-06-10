@@ -1,6 +1,6 @@
-@use '../../../core/mixin' as m;
-@use '../../../core/functions' as f;
-@use '../../../core/screen' as screen;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/screen' as screen;
 
 .webpack {
   &__wrapper {

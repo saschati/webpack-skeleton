@@ -1,4 +1,5 @@
 @use './functions' as f;
+@use './mixin' as m;
 @use './screen' as screen;
 
 @mixin style {
@@ -6,7 +7,7 @@
   color: f.color(dark);
   line-height: f.v(line-height);
 
-  font-family: 'Heebo', sans-serif;
+  @include m.font(common);
   font-style: normal;
   font-weight: 400;
   font-size: f.v(text-size-base);

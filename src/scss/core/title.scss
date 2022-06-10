@@ -1,0 +1,12 @@
+@use './functions' as f;
+@use './mixin' as m;
+
+@mixin title($type: h1) {
+  @include m.font(common);
+
+  @if ($type == h1 or $type == 44px) {
+    @include m.text($size: f.size(44px), $lh: f.lh(60px), $w: 700);
+  } @else {
+    @include m.text($size: f.size(32px), $lh: f.lh(40px), $w: 700, $ta: center)
+  }
+}

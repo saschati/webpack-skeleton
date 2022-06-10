@@ -1,5 +1,5 @@
-@use '../../core/page' as page;
-@use '../../core/screen' as screen;
+@use 'src/scss/core/page' as page;
+@use 'src/scss/core/screen' as screen;
 
 .homepage {
   @include page.style;

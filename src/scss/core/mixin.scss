@@ -1,6 +1,16 @@
-@mixin text($size: false, /* color */ $c: false, /* line-height */ $lh: false, /* font-weight */ $w: false, $ta: false) {
+@use './config' as c;
+
+@mixin text(
+  $size: false,
+  /* color */          $c: false,
+  /* line-height */    $lh: false,
+  /* font-weight */    $w: false,
+  /* text-align */     $ta: false,
+  /* letter-spacing */ $ls: false,
+  /* text-transform */ $tt: false,
+) {
   @if ($size) {
-    font-size: if($size, $size, var(--text-size-no));
+    font-size: $size;
   }
 
   @if ($c) {
@@ -17,6 +27,14 @@
 
   @if ($ta) {
     text-align: $ta;
+  }
+
+  @if ($ls) {
+    letter-spacing: $ls;
+  }
+
+  @if ($tt) {
+    text-transform: $tt;
   }
 }
 
@@ -77,7 +95,7 @@
   }
 }
 
-@mixin flex($flow: false, $jc: false, $ai: false) {
+@mixin flex($flow: false, $jc: false, $ai: false, $ac: false) {
   display: flex;
 
   @if ($flow == center) {
@@ -85,7 +103,9 @@
     align-items: center;
   }
 
-  @if ($flow) {
+  @if ($flow == wrap) {
+    flex-wrap: wrap;
+  } @else if ($flow) {
     flex-flow: $flow;
   }
 
@@ -96,10 +116,23 @@
   @if ($ai) {
     align-items: $ai;
   }
+
+  @if ($ac) {
+    align-content: $ac;
+  }
 }
 
 @mixin relative($size, $direction: bottom) {
   & + & {
     margin-#{$direction}: $size;
   }
+}
+
+@mixin font($type: title) {
+  $font: c.fonts($type);
+  @if not $font {
+    @error '#{$type} font not found.';
+  }
+
+  font-family: $font;
 }

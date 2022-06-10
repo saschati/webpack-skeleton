@@ -1,5 +1,5 @@
 @use '../_conf' as conf;
-@use '../../../core/mixin' as m;
+@use 'src/scss/core/mixin' as m;
 
 @include conf.animate(circle) {
   @include conf.lines {

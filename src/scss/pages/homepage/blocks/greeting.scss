@@ -1,6 +1,7 @@
-@use '../../../core/mixin' as m;
-@use '../../../core/screen' as screen;
-@use '../../../core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/title' as t;
+@use 'src/scss/core/screen' as screen;
 
 .greeting {
   @include m.flex();
@@ -34,7 +35,7 @@
     margin-top: 18px;
     margin-bottom: 40px;
 
-    @include m.text($size: f.size(mx3), $lh: f.lh(36px), $w: 700);
+    @include t.title(h1);
   }
 
   &__description {
@@ -69,7 +70,7 @@
       margin-top: 43.14px;
       margin-bottom: 21px;
 
-      @include m.text($size: f.size(32px), $lh: f.lh(16px), $w: 700, $ta: center);
+      @include t.title(h2);
     }
 
     &__description {

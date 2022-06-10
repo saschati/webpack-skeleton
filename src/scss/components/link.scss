@@ -1,8 +1,8 @@
-@use '../core/functions' as f;
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/mixin' as m;
 
 .link {
-  color: f.v(link-color, #{f.color(black)});
-  font-size: f.v(link-text-size, #{f.size(nx2)});
+  @include m.text(f.v(link-text-size, #{f.size(20px)}), f.v(link-color, #{f.color(black)}), $w: f.v(link-w, 400));
 
   &_type {
     &--active {

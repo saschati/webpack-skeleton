@@ -9,5 +9,13 @@
 
   &--no-scroll {
     overflow: hidden;
+
+    &-x {
+      overflow-x: hidden;
+    }
+
+    &-y {
+      overflow-y: hidden;
+    }
   }
 }

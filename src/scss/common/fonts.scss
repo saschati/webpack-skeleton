@@ -1,5 +1,7 @@
+@use 'src/scss/core/config' as c;
+
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @font-face {
-  font-family: 'Heebo', sans-serif;
+  font-family: c.fonts(common);
 }

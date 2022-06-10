@@ -1,5 +1,5 @@
-@use '../core/mixin' as m;
-@use '../core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
 
 .footer {
   @include m.flex(column, flex-end, center);
@@ -9,7 +9,7 @@
   }
 
   &__copyright {
-    @include m.text(f.size(sx1), $lh: f.lh(-3px));
+    @include m.text(f.size(14px), $lh: f.lh(21px));
 
     margin-bottom: 54px;
   }

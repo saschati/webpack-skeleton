@@ -41,7 +41,16 @@ module.exports = function (confPath) {
                         }
                     },
                 },
-                'sass-loader',
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sassOptions: {
+                            sassLoader: {
+                                includePaths: [path.join(confPath, 'src')]
+                            }
+                        }
+                    }
+                },
             ],
         },
         {

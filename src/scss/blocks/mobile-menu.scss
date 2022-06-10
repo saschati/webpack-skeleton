@@ -1,5 +1,5 @@
-@use './../core/mixin' as m;
-@use './../core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
 
 .mobile-menu {
   @include m.flex(row, flex-end, flex-start);
@@ -24,7 +24,7 @@
   }
 
   &_state--open {
-    @include m.flex(column, center, $ai: center);
+    @include m.flex(column, center, center);
 
     position: fixed;
     z-index: 5;

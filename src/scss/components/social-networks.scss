@@ -1,4 +1,4 @@
-@use '../core/mixin' as m;
+@use 'src/scss/core/mixin' as m;
 
 .social-networks {
   @include m.flex();

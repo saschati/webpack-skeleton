@@ -1,19 +1,20 @@
-@use "../../common/bootstrap";
+@use "src/scss/common/bootstrap";
 
 // COMPONENTS
-@use "../../components/link";
-@use "../../components/social-networks";
-@use "../../components/btn";
-@use "../../components/mark";
+@use "src/scss/components/link";
+@use "src/scss/components/social-networks";
+@use "src/scss/components/btn";
+@use "src/scss/components/mark";
+@use "src/scss/components/icons";
 
 // MIXED
-@use "../../mixed/grid";
-@use "../../mixed/bg";
-@use "../../mixed/state";
+@use "src/scss/mixed/grid";
+@use "src/scss/mixed/bg";
+@use "src/scss/mixed/state";
 
 // BLOCKS
-@use "../../blocks/footer";
-@use "../../blocks/header";
+@use "src/scss/blocks/footer";
+@use "src/scss/blocks/header";
 
 // THIS
 @use "./blocks/greeting";

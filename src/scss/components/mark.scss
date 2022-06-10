@@ -1,17 +1,49 @@
-@use '../core/mixin' as m;
-@use '../core/functions' as f;
-@use '../core/screen' as screen;
+@use 'src/scss/core/config' as c;
+@use 'src/scss/core/helpers' as h;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/screen' as screen;
+
+@mixin mark-color($name, $bg, $tc: white) {
+  &_#{$name} {
+    --mark-bg-color: #{f.color(#{$bg})};
+    --mark-color: #{f.color(#{$tc})};
+  }
+}
 
 .mark {
+  --mark-height: 25px;
+  --mark-padding: 10px 0;
+  --mark-rudings: 16px;
+  --mark-lh: #{f.lh(1px)};
+  --mark-fs: #{f.size(20px)};
+  --mark-bg-color: #{f.color(dark-blue)};
+  --mark-color: #{f.color(white)};
+  --mark-w: #{f.color(white)};
+  --mark-weight: 900;
+
   display: inline-block;
 
-  height: 25px;
-  padding-inline: 10px;
+  height: f.v(mark-height);
+  padding: f.v(mark-padding);
 
-  border-radius: 16px;
-  background-color: f.v(mark-bg-color, #{f.color(dark-blue)});
+  border-radius: f.v(mark-rudings);
+  background-color: f.v(mark-bg-color);
+  color: f.v(mark-color);
 
-  @include m.text(f.size(nx2), $lh: f.lh(1px), $c: f.v(mark-color, #{f.color(white)}), $w: 900);
+  @include m.text(f.v(mark-fs), $w: f.v(mark-weight), $tt: uppercase, $lh: f.v(mark-lh), $c: f.v(mark-color));
+
+  // COLOR
+  &_color {
+    @each $name in c.colors(name) {
+      $text: 'white';
+      @if (h.to-string($name) == $text) {
+        $text: 'black';
+      }
+
+      @include mark-color($name, $name, $text);
+    }
+  }
 
   // ADAPTIVE
   @include screen.mobile {

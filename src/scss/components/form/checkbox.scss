@@ -1,0 +1,69 @@
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/functions' as f;
+
+.checkbox {
+  --checkbox-bg-color: #{f.color(black)};
+  --checkbox-bg-active-color: #{f.color(black)};
+  --checkbox-tick-color: #{f.color(white)};
+  --checkbox-ds-color: #b8b8b8;
+  --checkbox-ds-tick-color: #ddd;
+
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+
+  &:before {
+    content: '';
+    display: inline-block;
+
+    @include m.square(24px);
+
+    vertical-align: text-top;
+
+    border-radius: 8px;
+    background: f.v(checkbox-bg-color);
+  }
+
+  &:hover:before {
+    background: f.v(checkbox-bg-active-color);
+  }
+
+  &:focus:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  }
+
+  &:checked {
+    &:before {
+      background: f.v(checkbox-bg-active-color);
+    }
+
+    &:after {
+      content: '';
+
+      position: absolute;
+
+      @include m.coords($l: 7px, $t: 13px);
+      @include m.square(2px);
+
+      background: f.v(checkbox-tick-color);
+      box-shadow:
+        2px 0 0 f.v(checkbox-tick-color),
+        4px 0 0 f.v(checkbox-tick-color),
+        4px -2px 0 f.v(checkbox-tick-color),
+        4px -4px 0 f.v(checkbox-tick-color),
+        4px -6px 0 f.v(checkbox-tick-color),
+        4px -8px 0 f.v(checkbox-tick-color);
+      transform: rotate(45deg);
+    }
+  }
+
+  &:disabled {
+    color: f.v(checkbox-ds-color);
+    cursor: auto;
+
+    &:before {
+      box-shadow: none;
+      background: f.v(checkbox-ds-tick-color);
+    }
+  }
+}

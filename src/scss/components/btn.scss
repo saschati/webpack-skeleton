@@ -1,4 +1,8 @@
-@use '../core/functions' as f;
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/helpers' as h;
+@use 'src/scss/core/config' as c;
+@use 'sass:list' as list;
 
 @mixin btn-color($name, $bg, $tc: white) {
   &_#{$name} {
@@ -13,6 +17,13 @@
   --btn-padding: 9px 21px 17px 20px;
   --btn-height: 47px;
   --btn-anim-speed: 0.3s;
+  --btn-size: #{f.size(20px)};
+  --btn-lh: #{f.lh(29px)};
+  --btn-ta: center;
+  --btn-w: 600;
+  --btn-ws: nowrap;
+  --btn-ls: 0;
+  --btn-bs: 1px;
 
   background-color: f.v(btn-bg-color);
   color: f.v(btn-color);
@@ -20,29 +31,47 @@
   height: f.v(btn-height);
   padding: f.v(btn-padding);
 
-  text-align: center;
-  white-space: nowrap;
-  font-size: f.size(nx2);
-  line-height: f.lh(5px);
+  @include m.text(f.v(btn-size), $lh: f.v(btn-lh), $ta: f.v(btn-ta), $w: f.v(btn-w), $ls: f.v(btn-ls));
+  @include m.font(common);
+
+  white-space: f.v(btn-ws);
 
   cursor: pointer;
   transition: f.v(btn-anim-speed);
 
-  // COLOR
-  &_color {
-    @include btn-color('black', 'black');
-    @include btn-color('white', 'white', 'black');
-    @include btn-color('dark', 'dark');
-    @include btn-color('primary', 'primary');
-    @include btn-color('water', 'water');
-    @include btn-color('dark-blue', 'dark-blue');
-    @include btn-color('light', 'light');
-    @include btn-color('light-red', 'light-red');
-  }
-
+  // ACTION
   &:hover {
     color: f.v(btn-bg-color);
     background-color: f.v(btn-color);
-    box-shadow: 0 0 0 1pt f.v(btn-bg-color);
+    box-shadow: 0 0 0 f.v(btn-bs) f.v(btn-bg-color);
+  }
+
+  // COLOR
+  &_color {
+    @each $name in c.colors(name) {
+      $text: 'white';
+      @if (h.to-string($name) == $text) {
+        $text: 'black';
+      }
+
+      @include btn-color($name, $name, $text);
+    }
+
+    &_transparent {
+      --btn-bg-color: transparent;
+      --btn-color: f.color(black);
+
+      &:hover {
+        color: f.color(white);
+        background-color: f.color(black);
+      }
+    }
+  }
+
+  // MODIFICATION
+  &_mod {
+    &_border {
+      box-shadow: 0 0 0 f.v(btn-bs) f.color(black);
+    }
   }
 }
