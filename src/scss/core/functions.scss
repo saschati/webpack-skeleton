@@ -14,7 +14,7 @@
   @return var(--#{$var});
 }
 
-@function size($key: 16px) {
+@function size($key: c.$baseSize) {
   $size: map-get(c.sizes(base, name), $key);
 
   @if not $size {
@@ -31,6 +31,10 @@
 
   @if (str-index(h.to-string($value), 'px')) {
     $value: h.to-number($value) - c.$lineHeight;
+
+    @if ($value == 0px) {
+      @return v(line-height);
+    }
   } @else {
     $value: h.to-unit($value);
   }
@@ -40,6 +44,7 @@
 
 @function color($name) {
   $colors: c.colors(name);
+  $name: to-lower-case(h.to-string($name));
 
   @if (h.in-list($colors, h.to-string($name)) == false) {
     @error "#{$name} is not a valid color. Expected one of #{$colors}.";

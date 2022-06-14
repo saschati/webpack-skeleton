@@ -73,5 +73,17 @@
     &_border {
       box-shadow: 0 0 0 f.v(btn-bs) f.color(black);
     }
+    &_icon {
+      @include m.flex($ai: center);
+    }
+  }
+
+  &__icon {
+    &-before {
+      margin-right: 10px;
+    }
+    &-after {
+      margin-right: 10px;
+    }
   }
 }

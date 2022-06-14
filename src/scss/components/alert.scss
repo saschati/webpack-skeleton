@@ -1,0 +1,41 @@
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+
+.alert {
+  --alert-h: 100px;
+  --alert-w: 100%;
+
+  --alert-radius: 0;
+  --alert-bg-color: #{f.color(white)};
+  --alert-color: #{f.color(black)};
+  --alert-weight: 600;
+
+  --alert-bg-warning: #{f.color(alert-warning)};
+  --alert-bg-info: #{f.color(alert-info)};
+
+  @include m.flex($ai: center);
+  @include m.box(f.v(alert-w), f.v(alert-h));
+
+  padding-inline: 40px;
+
+  border-radius: f.v(alert-radius);
+  background-color: f.v(alert-bg-color);
+  box-shadow: -3px 0 0 0 f.v(alert-color);
+  @include m.text($c: f.v(alert-color), $w: f.v(alert-weight));
+
+  &_type {
+    &_warning {
+      --alert-bg-color: #{f.v(alert-bg-warning)};
+    }
+    &_info {
+      --alert-bg-color: #{f.v(alert-bg-info)};
+    }
+  }
+
+  &__icon {
+    margin-right: 20px;
+  }
+
+  &__message {
+  }
+}

@@ -10,10 +10,13 @@ module.exports = {
     entry: require('./webpack/config/entry.config'),
     output: {
         path: path.join(__dirname, '/dist'),
-        clean: true,
+        filename: "./js/[name].js?hash=[contenthash]",
+
         assetModuleFilename: '[path][name][ext]?hash=[contenthash]',
 
-        filename: "./js/[name].js?hash=[contenthash]",
+        clean: {
+            keep: /.git/,
+        },
     },
     mode: 'development',
     watch: false,

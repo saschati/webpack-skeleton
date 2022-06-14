@@ -1,0 +1,11 @@
+@use 'src/scss/core/functions' as f;
+@use 'src/scss/core/mixin' as m;
+@use 'src/scss/core/title' as t;
+
+.title {
+  color: f.color(black);
+
+  &_h1 {
+    @include t.title(h1);
+  }
+}

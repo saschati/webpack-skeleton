@@ -7,7 +7,7 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const DashboardPlugin = require("webpack-dashboard/plugin");
-const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs');
+const WebpackIconfontPluginNodejs = require('../plugins/webpack-iconfont-plugin-nodejs/index');
 
 const path = require('path');
 const args = require('args-parser')(process.argv);

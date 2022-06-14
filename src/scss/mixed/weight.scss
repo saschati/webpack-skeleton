@@ -1,0 +1,13 @@
+@use 'src/scss/core/functions' as f;
+
+.weight {
+  font-weight: f.v(weight-font, 400);
+
+  &_type {
+    @for $i from 1 through 9 {
+      &_w#{$i} {
+        --weight-font: #{$i}00;
+      }
+    }
+  }
+}
