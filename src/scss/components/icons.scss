@@ -7,10 +7,11 @@
              url("/app/src/fonts/icons/icons.svg?0dc30e4b#icons") format("svg");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 .icon {
-  font-family: 'icons';
+  font-family: 'icons', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;

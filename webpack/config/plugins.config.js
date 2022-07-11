@@ -7,7 +7,7 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const DashboardPlugin = require("webpack-dashboard/plugin");
-const WebpackIconfontPluginNodejs = require('../plugins/webpack-iconfont-plugin-nodejs/index');
+const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs');
 
 const path = require('path');
 const args = require('args-parser')(process.argv);
@@ -50,6 +50,7 @@ module.exports = function (confPath, webpack) {
             fontName: 'icons',
             jsOutput: false,
             htmlOutput: false,
+            notWatchFile: true,
             template: path.join(confPath, 'webpack/plugins/webpack-iconfont-plugin-nodejs/template/scss.njk'),
             cssFontPath: path.join(confPath, 'src/fonts/icons'),
             cssPrefix: 'icon',
